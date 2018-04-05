@@ -6,7 +6,6 @@ import {
 	StatusBar,
 	TouchableOpacity,
 } from 'react-native';
-import { StackNavigator, DrawerNavigator, DrawerItems } from 'react-navigation';
 import { Ionicons as Icon } from '@expo/vector-icons';
 
 const styles = StyleSheet.create({
@@ -18,7 +17,7 @@ const styles = StyleSheet.create({
 	customDrawerIcon: { paddingRight: 7 },
 });
 
-export class C1_Option1 extends React.Component {
+export class TextField_withTitle extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -32,14 +31,14 @@ export class C1_Option1 extends React.Component {
 					</TouchableOpacity>
 				</View>
 				<View style={styles.innerContainer}>
-					<Text>DataSearch: Option 1</Text>
+					<Text>TextField_withTitle</Text>
 				</View>
 			</View>
 		);
 	}
 }
 
-export class C1_Option2 extends React.Component {
+export class TextField_withIcon extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
@@ -53,7 +52,7 @@ export class C1_Option2 extends React.Component {
 					</TouchableOpacity>
 				</View>
 				<View style={styles.innerContainer}>
-					<Text>DataSearch: Option 2</Text>
+					<Text>TextField_withIcon</Text>
 				</View>
 			</View>
 		);

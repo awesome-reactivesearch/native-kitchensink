@@ -3,7 +3,7 @@ import { TouchableOpacity, Text } from 'react-native';
 
 const DrawerItem = ({ label, onPress }) => (
 	<TouchableOpacity onPress={onPress}>
-		<Text style={{ paddingVertical: 15, paddingHorizontal: 10 }}>{label}</Text>
+		<Text style={{ paddingVertical: 20, paddingLeft: 12 }}>{label}</Text>
 	</TouchableOpacity>
 );
 

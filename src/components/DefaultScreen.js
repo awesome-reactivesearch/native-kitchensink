@@ -17,42 +17,21 @@ const styles = StyleSheet.create({
 	customDrawerIcon: { paddingRight: 7 },
 });
 
-export class DataSearch_withTitle extends React.Component {
+export default class DefaultScreen extends React.Component {
 	render() {
 		return (
 			<View style={styles.container}>
 				<View style={styles.header}>
 					<TouchableOpacity
 						onPress={() => {
-							this.props.navigation.goBack();
+							this.props.navigation.navigate('DrawerToggle');
 						}}
 					>
 						<Icon name="md-menu" size={30} />
 					</TouchableOpacity>
 				</View>
 				<View style={styles.innerContainer}>
-					<Text>DataSearch_withTitle</Text>
-				</View>
-			</View>
-		);
-	}
-}
-
-export class DataSearch_withIcon extends React.Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<View style={styles.header}>
-					<TouchableOpacity
-						onPress={() => {
-							this.props.navigation.goBack();
-						}}
-					>
-						<Icon name="md-menu" size={30} />
-					</TouchableOpacity>
-				</View>
-				<View style={styles.innerContainer}>
-					<Text>DataSearch_withIcon</Text>
+					<Text>Application Default Screen</Text>
 				</View>
 			</View>
 		);
