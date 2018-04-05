@@ -64,6 +64,7 @@ module.exports = {
 		'react/prefer-stateless-function': 0,
 		'react/no-multi-comp': 0,
 		'import/prefer-default-export': 0,
+		camelcase: 0,
 		'react/prop-types': 0, // TODO: fix later
 	},
 };
