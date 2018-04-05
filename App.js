@@ -1,6 +1,6 @@
 import React from 'react';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
-import MainDrawer from './src/containers/MainDrawer';
+import MainDrawer from './src/drawers/MainDrawer';
 
 import screenMapping from './src/screenMapping';
 import {

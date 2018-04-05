@@ -1,20 +1,30 @@
-import { C1_Option1, C1_Option2 } from './components/DataSearch/options';
+import {
+	DataSearch_withTitle,
+	DataSearch_withIcon,
+} from './components/DataSearch';
+import {
+	TextField_withTitle,
+	TextField_withIcon,
+} from './components/TextField';
+import DefaultScreen from './components/DefaultScreen';
 
 export default {
-	Components1: {
-		C1_Option1: {
-			screen: C1_Option1,
+	DataSearch: {
+		screen: DefaultScreen,
+		DataSearch_withTitle: {
+			screen: DataSearch_withTitle,
 		},
-		C1_Option2: {
-			screen: C1_Option2,
+		DataSearch_withIcon: {
+			screen: DataSearch_withIcon,
 		},
 	},
-	// Components2: {
-	// 	C2_Option1: {
-	// 		screen: C2_Option1,
-	// 	},
-	// 	C2_Option2: {
-	// 		screen: C2_Option2,
-	// 	},
-	// },
+	TextField: {
+		screen: DefaultScreen,
+		TextField_withTitle: {
+			screen: TextField_withTitle,
+		},
+		TextField_withIcon: {
+			screen: TextField_withIcon,
+		},
+	},
 };
