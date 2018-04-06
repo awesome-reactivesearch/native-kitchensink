@@ -29,7 +29,7 @@ class ChildDrawer extends Component {
 	renderChildDrawerItems = childDrawerItems =>
 		Object.keys(childDrawerItems).map(childDrawerKey => (
 			<DrawerItem
-				label={childDrawerKey}
+				label={childDrawerKey.substr(childDrawerKey.indexOf('_') + 1)}
 				key={childDrawerKey}
 				onPress={() => {
 					this.props.navigateToCallback(childDrawerKey);
@@ -50,17 +50,25 @@ class ChildDrawer extends Component {
 					<View
 						style={{
 							flexDirection: 'row',
-							paddingTop: 5,
-							paddingBottom: 13,
+							alignItems: 'center',
+							paddingBottom: 17,
+							paddingLeft: 3,
 							borderBottomColor: '#F0F0F0',
 							borderBottomWidth: 1,
 						}}
 					>
-						<Icon name="ios-arrow-back" size={25} style={styles.customDrawerIcon} />
-						<Text>Back to {componentKey}</Text>
+						<Icon
+							name="ios-arrow-back"
+							size={25}
+							style={styles.customDrawerIcon}
+							color="#666666"
+						/>
+						<Text style={{ color: '#666666' }}>Back to {componentKey}</Text>
 					</View>
 				</TouchableOpacity>
-				{this.renderChildDrawerItems(items)}
+				<View style={{ paddingLeft: 10 }}>
+					{this.renderChildDrawerItems(items)}
+				</View>
 			</DrawerContainer>
 		);
 	}

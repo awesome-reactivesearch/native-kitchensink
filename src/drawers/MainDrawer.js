@@ -42,6 +42,8 @@ class MainDrawer extends Component {
 		const { mainDrawer, currentComponent } = this.state;
 		const { items } = this.props;
 
+		console.log('MainDrawer: ', items);
+
 		if (mainDrawer) {
 			return (
 				<DrawerContainer>
