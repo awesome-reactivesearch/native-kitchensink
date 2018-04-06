@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import DrawerItem from '../components/DrawerItem';
+import DrawerContainer from '../components/DrawerContainer';
+import DrawerHeader from '../components/DrawerHeader';
 
 const styles = StyleSheet.create({
 	customDrawerTouch: {
@@ -39,7 +41,8 @@ class ChildDrawer extends Component {
 	render() {
 		const { items, componentKey } = this.props;
 		return (
-			<View style={styles.customDrawer}>
+			<DrawerContainer>
+				<DrawerHeader />
 				<TouchableOpacity
 					onPress={this.props.goBack}
 					style={styles.customDrawerTouch}
@@ -58,7 +61,7 @@ class ChildDrawer extends Component {
 					</View>
 				</TouchableOpacity>
 				{this.renderChildDrawerItems(items)}
-			</View>
+			</DrawerContainer>
 		);
 	}
 }
