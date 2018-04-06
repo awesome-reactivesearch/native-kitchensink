@@ -5,6 +5,7 @@ import DrawerItem from '../components/DrawerItem';
 import ChildDrawer from './ChildDrawer';
 import DrawerContainer from '../components/DrawerContainer';
 import DrawerHeader from '../components/DrawerHeader';
+import screenMapping from './../screenMapping';
 
 class MainDrawer extends Component {
 	constructor(props) {
@@ -50,7 +51,10 @@ class MainDrawer extends Component {
 			);
 		}
 
-		const childDrawerItems = getChildDrawerOptions(currentComponent.key);
+		const childDrawerItems = getChildDrawerOptions(
+			screenMapping,
+			currentComponent.key
+		);
 
 		return (
 			<ChildDrawer

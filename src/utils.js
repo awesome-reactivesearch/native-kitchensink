@@ -1,5 +1,3 @@
-import screenMapping from './screenMapping';
-
 /*	Used in RootDrawer to register for each component individually
 	Flatten the screen mapping in form of:
 	{
@@ -56,7 +54,7 @@ export const flattenChildDrawerObjects = nestedObject => {
 		}
 	}
 */
-export const getChildDrawerOptions = componentId => {
+export const getChildDrawerOptions = (screenMapping, componentId) => {
 	const { screen, ...drawerOptions } = screenMapping[componentId];
 	return drawerOptions;
 };
