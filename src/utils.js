@@ -56,9 +56,7 @@ export const flattenChildDrawerObjects = nestedObject => {
 		}
 	}
 */
-export const getChildDrawerOptions = (componentId, screenMappingProp) => {
-	const { screen, ...drawerOptions } = screenMappingProp
-		? screenMappingProp[componentId]
-		: screenMapping[componentId];
+export const getChildDrawerOptions = componentId => {
+	const { screen, ...drawerOptions } = screenMapping[componentId];
 	return drawerOptions;
 };
