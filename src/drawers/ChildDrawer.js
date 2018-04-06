@@ -30,6 +30,7 @@ class ChildDrawer extends Component {
 		Object.keys(childDrawerItems).map(childDrawerKey => (
 			<DrawerItem
 				label={childDrawerKey.substr(childDrawerKey.indexOf('_') + 1)}
+				// .replace('with', 'with ')}
 				key={childDrawerKey}
 				onPress={() => {
 					this.props.navigateToCallback(childDrawerKey);
@@ -63,7 +64,7 @@ class ChildDrawer extends Component {
 							style={styles.customDrawerIcon}
 							color="#666666"
 						/>
-						<Text style={{ color: '#666666' }}>Back to {componentKey}</Text>
+						<Text style={{ color: '#666666' }}>Back to Components</Text>
 					</View>
 				</TouchableOpacity>
 				<View style={{ paddingLeft: 10 }}>
