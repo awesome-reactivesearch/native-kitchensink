@@ -6,11 +6,9 @@ import * as SingleDropdownListScreens from './components/SingleDropdownList';
 import * as SingleDropdownRangeScreens from './components/SingleDropdownRange';
 import * as DatePickerScreens from './components/DatePicker';
 import * as DateRangeScreens from './components/DateRange';
-import DefaultScreen from './components/DefaultScreen';
 
 export default {
 	DataSearch: {
-		screen: DefaultScreen,
 		DataSearch_Basic: {
 			screen: DataSearchScreens.Basic,
 		},
@@ -40,7 +38,6 @@ export default {
 		},
 	},
 	TextField: {
-		screen: DefaultScreen,
 		TextField_Basic: {
 			screen: TextFieldScreens.Basic,
 		},
@@ -58,7 +55,6 @@ export default {
 		},
 	},
 	MultiDropdownList: {
-		screen: DefaultScreen,
 		MultiDropdownList_Basic: {
 			screen: MultiDropdownListScreens.Basic,
 		},
@@ -88,7 +84,6 @@ export default {
 		},
 	},
 	MultiDropdownRange: {
-		screen: DefaultScreen,
 		MultiDropdownRange_Basic: {
 			screen: MultiDropdownRangeScreens.Basic,
 		},
@@ -106,7 +101,6 @@ export default {
 		},
 	},
 	SingleDropdownList: {
-		screen: DefaultScreen,
 		SingleDropdownList_Basic: {
 			screen: SingleDropdownListScreens.Basic,
 		},
@@ -136,7 +130,6 @@ export default {
 		},
 	},
 	SingleDropdownRange: {
-		screen: DefaultScreen,
 		SingleDropdownRange_Basic: {
 			screen: SingleDropdownRangeScreens.Basic,
 		},
@@ -154,7 +147,6 @@ export default {
 		},
 	},
 	DatePicker: {
-		screen: DefaultScreen,
 		DatePicker_Basic: {
 			screen: DatePickerScreens.Basic,
 		},
@@ -172,7 +164,6 @@ export default {
 		},
 	},
 	DateRange: {
-		screen: DefaultScreen,
 		DateRange_Basic: {
 			screen: DateRangeScreens.Basic,
 		},

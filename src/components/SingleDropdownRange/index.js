@@ -16,7 +16,7 @@ export const Basic = ({ navigation }) => (
 		<View style={styles.headerSpacer} />
 		<SingleDropdownRange
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -28,7 +28,7 @@ export const WithoutPlaceholder = ({ navigation }) => (
 		<SingleDropdownRange
 			placeholder=""
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -40,7 +40,7 @@ export const WithDefaultSelected = ({ navigation }) => (
 		<SingleDropdownRange
 			defaultSelected="Rating 3 to 4"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -59,7 +59,7 @@ export const WithCustomStyles = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -82,7 +82,7 @@ export const Playground = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>

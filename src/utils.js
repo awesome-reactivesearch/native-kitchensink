@@ -1,27 +1,3 @@
-/*	Used in RootDrawer to register for each component individually
-	Flatten the screen mapping in form of:
-	{
-		DataSearch: {
-			screen: DataSearch
-		},
-  		TextField: {
-			screen: TextField
-		}
-	}
-*/
-export const flattenMainDrawerObjects = nestedObject => {
-	let screens = {};
-	Object.keys(nestedObject).forEach(componentKey => {
-		const componentScreenObj = {
-			[componentKey]: {
-				screen: nestedObject[componentKey].screen,
-			},
-		};
-		screens = { ...screens, ...componentScreenObj };
-	});
-	return screens;
-};
-
 /* 	Used for all the child component screens to register them individually
 	Flatten the screen mapping in form of:
 	{

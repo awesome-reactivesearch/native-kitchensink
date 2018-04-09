@@ -66,6 +66,7 @@ module.exports = {
 		'import/prefer-default-export': 0,
 		camelcase: 0,
 		'operator-linebreak': 0,
+		'import/no-extraneous-dependencies': 0,
 		'react/prop-types': 0, // TODO: fix later
 	},
 };

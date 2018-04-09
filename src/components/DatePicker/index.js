@@ -17,7 +17,7 @@ export const Basic = ({ navigation }) => (
 		<DatePicker
 			showFilter={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -31,7 +31,7 @@ export const WithPlaceholder = ({ navigation }) => (
 			showFilter={false}
 			initialMonth="2017-05-05"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -44,7 +44,7 @@ export const WithInitialMonth = ({ navigation }) => (
 			initialMonth="2017-05-05"
 			showFilter={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -81,7 +81,7 @@ export const WithCustomStyles = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -114,7 +114,7 @@ export const Playground = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
