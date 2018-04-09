@@ -1,60 +1,95 @@
 import React from 'react';
-import {
-	View,
-	Text,
-	StyleSheet,
-	StatusBar,
-	TouchableOpacity,
-} from 'react-native';
-import { Ionicons as Icon } from '@expo/vector-icons';
+import { View, StyleSheet, StatusBar } from 'react-native';
+
+import TextField from './TextFieldView';
+import { DEFAULT_COLORS } from './../helpers';
 
 const styles = StyleSheet.create({
-	container: { flex: 1, paddingTop: StatusBar.currentHeight },
-	innerContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	header: { padding: 13, paddingTop: 0 },
-	customDrawer: {},
-	customDrawerTouch: { paddingLeft: 13, paddingBottom: 5 },
-	customDrawerIcon: { paddingRight: 7 },
+	headerSpacer: {
+		paddingTop: StatusBar.currentHeight,
+		backgroundColor: DEFAULT_COLORS.primary,
+	},
 });
 
-export class TextField_withTitle extends React.Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<View style={styles.header}>
-					<TouchableOpacity
-						onPress={() => {
-							this.props.navigation.goBack();
-						}}
-					>
-						<Icon name="md-menu" size={30} />
-					</TouchableOpacity>
-				</View>
-				<View style={styles.innerContainer}>
-					<Text>TextField_withTitle</Text>
-				</View>
-			</View>
-		);
-	}
-}
+export const Basic = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<TextField
+			showFilter={false}
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
 
-export class TextField_withIcon extends React.Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<View style={styles.header}>
-					<TouchableOpacity
-						onPress={() => {
-							this.props.navigation.goBack();
-						}}
-					>
-						<Icon name="md-menu" size={30} />
-					</TouchableOpacity>
-				</View>
-				<View style={styles.innerContainer}>
-					<Text>TextField_withIcon</Text>
-				</View>
-			</View>
-		);
-	}
-}
+export const WithoutPlaceholder = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<TextField
+			placeholder=""
+			showFilter={false}
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
+
+export const WithDefaultSelected = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<TextField
+			defaultSelected="The Murder of Roger Ackroyd"
+			showFilter={false}
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
+
+export const WithCustomStyles = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<TextField
+			placeholder="Search for a book title"
+			defaultSelected="Harry Potter"
+			showFilter={false}
+			innerStyle={{
+				icon: {
+					color: 'purple',
+				},
+				input: {
+					color: 'purple',
+				},
+			}}
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
+
+export const Playground = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<TextField
+			placeholder="Search for a book title"
+			defaultSelected="Harry Potter"
+			showFilter={false}
+			filterLabel="Books filter"
+			innerStyle={{
+				icon: {
+					color: 'purple',
+				},
+				input: {
+					color: 'purple',
+				},
+			}}
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
