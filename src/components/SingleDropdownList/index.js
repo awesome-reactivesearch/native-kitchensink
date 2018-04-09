@@ -16,7 +16,7 @@ export const Basic = ({ navigation }) => (
 		<View style={styles.headerSpacer} />
 		<SingleDropdownList
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -29,7 +29,7 @@ export const WithoutPlaceholder = ({ navigation }) => (
 			placeholder=""
 			showFilter={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -41,7 +41,7 @@ export const WithSize = ({ navigation }) => (
 		<SingleDropdownList
 			size={6}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -53,7 +53,7 @@ export const WithoutCount = ({ navigation }) => (
 		<SingleDropdownList
 			showCount={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -72,7 +72,7 @@ export const WithCustomStyles = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -84,7 +84,7 @@ export const WithCustomSort = ({ navigation }) => (
 		<SingleDropdownList
 			sortBy="desc"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -96,7 +96,7 @@ export const WithSelectAll = ({ navigation }) => (
 		<SingleDropdownList
 			selectAllLabel="All Series"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -108,7 +108,7 @@ export const WithDefaultSelected = ({ navigation }) => (
 		<SingleDropdownList
 			defaultSelected="Discworld"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -135,7 +135,7 @@ export const Playground = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>

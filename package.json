@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "exp start -c --lan",
-    "test": "node_modules/.bin/jest"
+    "test": "node_modules/.bin/jest",
+    "lint": "eslint ."
   },
   "jest": {
     "preset": "jest-expo"

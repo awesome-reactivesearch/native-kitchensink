@@ -16,7 +16,7 @@ export const Basic = ({ navigation }) => (
 		<View style={styles.headerSpacer} />
 		<MultiDropdownList
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -28,7 +28,7 @@ export const WithPlaceholder = ({ navigation }) => (
 		<MultiDropdownList
 			placeholder=""
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -40,7 +40,7 @@ export const WithSize = ({ navigation }) => (
 		<MultiDropdownList
 			size={6}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -62,7 +62,7 @@ export const WithCustomStyles = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -74,7 +74,7 @@ export const WithoutCount = ({ navigation }) => (
 		<MultiDropdownList
 			showCount={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -86,7 +86,7 @@ export const WithCustomSort = ({ navigation }) => (
 		<MultiDropdownList
 			sortBy="desc"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -98,7 +98,7 @@ export const WithSelectAll = ({ navigation }) => (
 		<MultiDropdownList
 			selectAllLabel="All Series"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -110,7 +110,7 @@ export const WithDefaultSelected = ({ navigation }) => (
 		<MultiDropdownList
 			defaultSelected={['Anita Blake', 'Discworld']}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -138,7 +138,7 @@ export const Playground = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>

@@ -17,7 +17,7 @@ export const Basic = ({ navigation }) => (
 		<TextField
 			showFilter={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -30,7 +30,7 @@ export const WithoutPlaceholder = ({ navigation }) => (
 			placeholder=""
 			showFilter={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -43,7 +43,7 @@ export const WithDefaultSelected = ({ navigation }) => (
 			defaultSelected="The Murder of Roger Ackroyd"
 			showFilter={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -65,7 +65,7 @@ export const WithCustomStyles = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -88,7 +88,7 @@ export const Playground = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>

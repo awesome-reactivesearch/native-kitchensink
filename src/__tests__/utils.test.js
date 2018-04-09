@@ -2,7 +2,6 @@ import * as utils from '../utils';
 
 const inputMapping = {
 	DataSearch: {
-		screen: 'DefaultScreen',
 		DataSearch_withTitle: {
 			screen: 'DataSearch_withTitle',
 		},
@@ -11,7 +10,6 @@ const inputMapping = {
 		},
 	},
 	TextField: {
-		screen: 'DefaultScreen',
 		TextField_withTitle: {
 			screen: 'TextField_withTitle',
 		},
@@ -19,11 +17,6 @@ const inputMapping = {
 			screen: 'TextField_withIcon',
 		},
 	},
-};
-
-const outputOne = {
-	DataSearch: { screen: 'DefaultScreen' },
-	TextField: { screen: 'DefaultScreen' },
 };
 
 const outputTwo = {
@@ -52,9 +45,6 @@ const outputFour = {
 };
 
 /* eslint no-undef: 0 */
-test('Flattens MainDrawer Objects', () => {
-	expect(utils.flattenMainDrawerObjects(inputMapping)).toEqual(outputOne);
-});
 
 test('Flattens ChildDrawer Objects', () => {
 	expect(utils.flattenChildDrawerObjects(inputMapping)).toEqual(outputTwo);
