@@ -30,7 +30,6 @@ class ChildDrawer extends Component {
 		Object.keys(childDrawerItems).map(childDrawerKey => (
 			<DrawerItem
 				label={childDrawerKey.substr(childDrawerKey.indexOf('_') + 1)}
-				// .replace('with', 'with ')}
 				key={childDrawerKey}
 				onPress={() => {
 					this.props.navigateToCallback(childDrawerKey);
@@ -40,10 +39,10 @@ class ChildDrawer extends Component {
 		));
 
 	render() {
-		const { items, componentKey } = this.props;
+		const { items, navigateToCallback } = this.props;
 		return (
 			<DrawerContainer>
-				<DrawerHeader />
+				<DrawerHeader navigateToCallback={navigateToCallback} />
 				<TouchableOpacity
 					onPress={this.props.goBack}
 					style={styles.customDrawerTouch}

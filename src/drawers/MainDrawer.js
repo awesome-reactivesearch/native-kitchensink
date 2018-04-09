@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NavigationActions } from 'react-navigation';
 
 import { getChildDrawerOptions } from '../utils';
 import DrawerItem from '../components/DrawerItem';
@@ -12,18 +13,29 @@ class MainDrawer extends Component {
 		super(props);
 		this.state = {
 			mainDrawer: true,
-			currentComponent: {},
+			currentComponent: '',
 		};
 	}
 
 	toggleMainDrawer = () =>
 		this.setState(prevState => ({ mainDrawer: !prevState.mainDrawer }));
 
+	_evaluateComponentsList = items => {
+		let drawerItems = new Set();
+		items.forEach(item => {
+			let { key } = item;
+			key = key.substr(0, key.indexOf('_'));
+			if (key.length) drawerItems.add(key);
+		});
+		drawerItems = Array.from(drawerItems);
+		return drawerItems;
+	};
+
 	renderMainDrawerComponents = mainDrawerItems =>
 		mainDrawerItems.map(item => (
 			<DrawerItem
-				key={item.key}
-				label={item.key}
+				key={item}
+				label={item}
 				onPress={() => {
 					this.toggleMainDrawer();
 					this.setState({ currentComponent: item });
@@ -32,22 +44,27 @@ class MainDrawer extends Component {
 		));
 
 	// Switches the rendering screen based on route key and mapping key
-	navigateToCallback = route => {
-		this.props.navigation.navigate(route);
+	navigateToCallback = routeName => {
+		const { navigation } = this.props;
+		const navigateAction = NavigationActions.navigate({
+			routeName,
+		});
+
+		navigation.dispatch(navigateAction);
 	};
 
 	// TODO: Pass all non-behavioral props that were previously passed to DrawerItems
 	// to have full support of navigation options and customizations
 	render() {
 		const { mainDrawer, currentComponent } = this.state;
-		const { items } = this.props;
+		let { items } = this.props;
 
-		// console.log('MainDrawer: ', items);
+		items = this._evaluateComponentsList(items);
 
 		if (mainDrawer) {
 			return (
 				<DrawerContainer>
-					<DrawerHeader />
+					<DrawerHeader navigateToCallback={this.navigateToCallback} />
 					{this.renderMainDrawerComponents(items)}
 				</DrawerContainer>
 			);
@@ -55,12 +72,12 @@ class MainDrawer extends Component {
 
 		const childDrawerItems = getChildDrawerOptions(
 			screenMapping,
-			currentComponent.key
+			currentComponent
 		);
 
 		return (
 			<ChildDrawer
-				componentKey={currentComponent.key}
+				componentKey={currentComponent}
 				items={childDrawerItems}
 				goBack={this.toggleMainDrawer}
 				navigateToCallback={this.navigateToCallback}

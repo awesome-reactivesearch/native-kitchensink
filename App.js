@@ -1,31 +1,16 @@
 import React from 'react';
-import { StackNavigator, DrawerNavigator } from 'react-navigation';
-import MainDrawer from './src/drawers/MainDrawer';
+import { DrawerNavigator } from 'react-navigation';
 
+import DefaultScreen from './src/components/DefaultScreen';
+import MainDrawer from './src/drawers/MainDrawer';
 import screenMapping from './src/screenMapping';
-import {
-	flattenChildDrawerObjects,
-	flattenMainDrawerObjects,
-} from './src/utils';
+import { flattenChildDrawerObjects } from './src/utils';
 
 // RootDrawer containing drawers for each components
 const RootDrawer = DrawerNavigator(
 	{
-		// Register screens of all components for main drawer
-		// Flatten all objects from mapping to contain only screen
-		...flattenMainDrawerObjects(screenMapping),
-	},
-	{
-		// Custom implementation of drawer panel
-		contentComponent: MainDrawer,
-	}
-);
-
-// RootStack containing RootDrawer and all the child component screens registered individually
-const RootStack = StackNavigator(
-	{
-		Main: {
-			screen: RootDrawer,
+		Home: {
+			screen: DefaultScreen,
 		},
 		// Register screens of all options of child components
 		// Flatten all objects from mapping to screen registration form (like `Main`)
@@ -33,12 +18,13 @@ const RootStack = StackNavigator(
 		...flattenChildDrawerObjects(screenMapping),
 	},
 	{
-		headerMode: 'none',
+		// Custom implementation of drawer panel
+		contentComponent: MainDrawer,
 	}
 );
 
 export default class App extends React.Component {
 	render() {
-		return <RootStack />;
+		return <RootDrawer />;
 	}
 }
