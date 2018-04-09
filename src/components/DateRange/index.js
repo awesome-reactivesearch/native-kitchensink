@@ -17,7 +17,7 @@ export const Basic = ({ navigation }) => (
 		<DateRange
 			showFilter={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -30,7 +30,7 @@ export const WithPlaceholder = ({ navigation }) => (
 			placeholder="Choose dates"
 			showFilter={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -46,7 +46,7 @@ export const WithDefaultSelected = ({ navigation }) => (
 			}}
 			showFilter={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -84,7 +84,7 @@ export const WithCustomStyles = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -98,7 +98,7 @@ export const WithQueryFormat = ({ navigation }) => (
 			showFilter={false}
 			queryFormat="date_time_no_millis"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -136,7 +136,7 @@ export const Playground = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>

@@ -16,7 +16,7 @@ export const Basic = ({ navigation }) => (
 		<View style={styles.headerSpacer} />
 		<DataSearch
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -29,7 +29,7 @@ export const WithIconPosition = ({ navigation }) => (
 			showFilter={false}
 			iconPosition="right"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -42,7 +42,7 @@ export const WithoutSearchIcon = ({ navigation }) => (
 			showFilter={false}
 			showIcon={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -55,7 +55,7 @@ export const WithoutAutosuggest = ({ navigation }) => (
 			autosuggest={false}
 			showFilter={false}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -85,7 +85,7 @@ export const WithCustomStyles = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -101,7 +101,7 @@ export const WithDefaultSuggestions = ({ navigation }) => (
 				{ label: 'The Lord of the Rings', value: 'The Lord of the Rings' },
 			]}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -113,7 +113,7 @@ export const WithDefaultSelected = ({ navigation }) => (
 			showFilter={false}
 			defaultSelected="Harry Potter"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -126,7 +126,7 @@ export const WithFuzzinessAsAuto = ({ navigation }) => (
 			showFilter={false}
 			fuzziness="AUTO"
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
@@ -163,7 +163,7 @@ export const Playground = ({ navigation }) => (
 				},
 			}}
 			navigate={() => {
-				navigation.goBack();
+				navigation.navigate('DrawerToggle');
 			}}
 		/>
 	</View>
