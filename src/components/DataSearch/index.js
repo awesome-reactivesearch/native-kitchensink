@@ -1,60 +1,170 @@
 import React from 'react';
-import {
-	View,
-	Text,
-	StyleSheet,
-	StatusBar,
-	TouchableOpacity,
-} from 'react-native';
-import { Ionicons as Icon } from '@expo/vector-icons';
+import { View, StyleSheet, StatusBar } from 'react-native';
+
+import DataSearch from './DataSearchView';
+import { DEFAULT_COLORS } from './../helpers';
 
 const styles = StyleSheet.create({
-	container: { flex: 1, paddingTop: StatusBar.currentHeight },
-	innerContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	header: { padding: 13, paddingTop: 0 },
-	customDrawer: {},
-	customDrawerTouch: { paddingLeft: 13, paddingBottom: 5 },
-	customDrawerIcon: { paddingRight: 7 },
+	headerSpacer: {
+		paddingTop: StatusBar.currentHeight,
+		backgroundColor: DEFAULT_COLORS.primary,
+	},
 });
 
-export class DataSearch_withTitle extends React.Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<View style={styles.header}>
-					<TouchableOpacity
-						onPress={() => {
-							this.props.navigation.goBack();
-						}}
-					>
-						<Icon name="md-menu" size={30} />
-					</TouchableOpacity>
-				</View>
-				<View style={styles.innerContainer}>
-					<Text>DataSearch_withTitle</Text>
-				</View>
-			</View>
-		);
-	}
-}
+export const Basic = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<DataSearch
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
 
-export class DataSearch_withIcon extends React.Component {
-	render() {
-		return (
-			<View style={styles.container}>
-				<View style={styles.header}>
-					<TouchableOpacity
-						onPress={() => {
-							this.props.navigation.goBack();
-						}}
-					>
-						<Icon name="md-menu" size={30} />
-					</TouchableOpacity>
-				</View>
-				<View style={styles.innerContainer}>
-					<Text>DataSearch_withIcon</Text>
-				</View>
-			</View>
-		);
-	}
-}
+export const WithIconPosition = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<DataSearch
+			showFilter={false}
+			iconPosition="right"
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
+
+export const WithoutSearchIcon = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<DataSearch
+			showFilter={false}
+			showIcon={false}
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
+
+export const WithoutAutosuggest = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<DataSearch
+			autosuggest={false}
+			showFilter={false}
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
+
+export const WithCustomStyles = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<DataSearch
+			showFilter={false}
+			defaultSelected="Harry Potter"
+			innerStyle={{
+				icon: {
+					color: 'purple',
+				},
+				input: {
+					color: 'purple',
+				},
+				label: {
+					color: '#9900cc',
+				},
+				header: {
+					backgroundColor: 'purple',
+				},
+				checkbox: {
+					color: 'purple',
+				},
+			}}
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
+
+export const WithDefaultSuggestions = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<DataSearch
+			showFilter={false}
+			defaultSuggestions={[
+				{ label: 'Sherlock Holmes', value: 'Sherlock Holmes' },
+				{ label: 'The Lord of the Rings', value: 'The Lord of the Rings' },
+			]}
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
+export const WithDefaultSelected = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<DataSearch
+			showFilter={false}
+			defaultSelected="Harry Potter"
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
+
+export const WithFuzzinessAsAuto = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<DataSearch
+			showFilter={false}
+			fuzziness="AUTO"
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
+
+export const Playground = ({ navigation }) => (
+	<View style={{ flex: 1 }}>
+		<View style={styles.headerSpacer} />
+		<DataSearch
+			defaultSelected="Harry Potter"
+			autosuggest
+			fieldWeights={[1, 3]}
+			fuzziness={1}
+			queryFormat="or"
+			showFilter
+			iconPosition="left"
+			filterLabel="Books filter"
+			highlight={false}
+			innerStyle={{
+				icon: {
+					color: 'purple',
+				},
+				input: {
+					color: 'purple',
+				},
+				label: {
+					color: '#9900cc',
+				},
+				header: {
+					backgroundColor: 'purple',
+				},
+				checkbox: {
+					color: 'purple',
+				},
+			}}
+			navigate={() => {
+				navigation.goBack();
+			}}
+		/>
+	</View>
+);
