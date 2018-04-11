@@ -6,7 +6,8 @@ const DrawerItem = ({ label, onPress, isChild }) => (
 	<TouchableOpacity
 		onPress={onPress}
 		style={{
-			paddingVertical: 20,
+			paddingTop: 21,
+			paddingBottom: 16,
 			paddingLeft: 15,
 			paddingRight: 10,
 		}}

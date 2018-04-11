@@ -5,6 +5,7 @@ import {
 	StyleSheet,
 	StatusBar,
 	TouchableOpacity,
+	ScrollView,
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import DrawerItem from '../components/DrawerItem';
@@ -14,8 +15,7 @@ import DrawerHeader from '../components/DrawerHeader';
 const styles = StyleSheet.create({
 	customDrawerTouch: {
 		paddingLeft: 13,
-		paddingBottom: 5,
-		paddingTop: StatusBar.currentHeight + 5,
+		paddingTop: 15,
 	},
 	customDrawerIcon: { paddingRight: 10 },
 });
@@ -66,9 +66,9 @@ class ChildDrawer extends Component {
 						<Text style={{ color: '#666666' }}>Back to Components</Text>
 					</View>
 				</TouchableOpacity>
-				<View style={{ paddingLeft: 10 }}>
+				<ScrollView style={{ paddingLeft: 10 }}>
 					{this.renderChildDrawerItems(items)}
-				</View>
+				</ScrollView>
 			</DrawerContainer>
 		);
 	}
