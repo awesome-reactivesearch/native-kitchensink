@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { NavigationActions } from 'react-navigation';
+import { ScrollView } from 'react-native';
+import { NavigationActions, DrawerItems } from 'react-navigation';
 
 import { getChildDrawerOptions } from '../utils';
-import DrawerItem from '../components/DrawerItem';
+// import DrawerItems from '../drawers/DrawerItems';
 import ChildDrawer from './ChildDrawer';
 import DrawerContainer from '../components/DrawerContainer';
 import DrawerHeader from '../components/DrawerHeader';
@@ -56,33 +57,43 @@ class MainDrawer extends Component {
 	// TODO: Pass all non-behavioral props that were previously passed to DrawerItems
 	// to have full support of navigation options and customizations
 	render() {
-		const { mainDrawer, currentComponent } = this.state;
-		let { items } = this.props;
-
-		items = this._evaluateComponentsList(items);
-
-		if (mainDrawer) {
-			return (
-				<DrawerContainer>
-					<DrawerHeader navigateToCallback={this.navigateToCallback} />
-					{this.renderMainDrawerComponents(items)}
-				</DrawerContainer>
-			);
-		}
-
-		const childDrawerItems = getChildDrawerOptions(
-			screenMapping,
-			currentComponent
-		);
-
+		const { items, ...restProps } = this.props;
+		console.log('items: ', restProps);
+		const scopedItems = items.slice(0, 5);
+		console.log('scopedItems: ', scopedItems);
 		return (
-			<ChildDrawer
-				componentKey={currentComponent}
-				items={childDrawerItems}
-				goBack={this.toggleMainDrawer}
-				navigateToCallback={this.navigateToCallback}
-			/>
+			<ScrollView>
+				<DrawerItems items={scopedItems} {...restProps} />
+			</ScrollView>
 		);
+
+		// const { mainDrawer, currentComponent } = this.state;
+		// let { items } = this.props;
+
+		// items = this._evaluateComponentsList(items);
+
+		// if (mainDrawer) {
+		// 	return (
+		// 		<DrawerContainer>
+		// 			<DrawerHeader navigateToCallback={this.navigateToCallback} />
+		// 			{this.renderMainDrawerComponents(items)}
+		// 		</DrawerContainer>
+		// 	);
+		// }
+
+		// const childDrawerItems = getChildDrawerOptions(
+		// 	screenMapping,
+		// 	currentComponent
+		// );
+
+		// return (
+		// 	<ChildDrawer
+		// 		componentKey={currentComponent}
+		// 		items={childDrawerItems}
+		// 		goBack={this.toggleMainDrawer}
+		// 		navigateToCallback={this.navigateToCallback}
+		// 	/>
+		// );
 	}
 }
 

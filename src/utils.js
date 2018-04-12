@@ -34,3 +34,27 @@ export const getChildDrawerOptions = (screenMapping, componentId) => {
 	const { screen, ...drawerOptions } = screenMapping[componentId];
 	return drawerOptions;
 };
+
+const _addedToSetChecker = (set, elementToAdd) => {
+	size = set.size;
+	return set.add(elementToAdd).size > size;
+}
+
+export const _evaluateOuterDrawerListItems = items => {
+	// let drawerItems = new Set();
+	// items.forEach(item => {
+	// 	let { key } = item;
+	// 	// Delimeter _
+	// 	key = key.substr(0, key.indexOf('_'));
+	// 	if (key.length) {
+	// 		if (_addedToSetChecker(drawerItems, key)) {
+
+	// 		}
+	// 	}
+	// });
+	// drawerItems = Array.from(drawerItems);
+	// return drawerItems;
+	
+};
+
+export const 
