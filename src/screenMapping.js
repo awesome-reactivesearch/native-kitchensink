@@ -50,8 +50,8 @@ export default {
 		screen: TextFieldScreens.Basic,
 		navigationOptions: evaluateChildDrawerTitle,
 	},
-	'TextField_Without Placeholder': {
-		screen: TextFieldScreens.WithoutPlaceholder,
+	'TextField_With Placeholder': {
+		screen: TextFieldScreens.WithPlaceholder,
 		navigationOptions: evaluateChildDrawerTitle,
 	},
 	'TextField_With DefaultSelected': {

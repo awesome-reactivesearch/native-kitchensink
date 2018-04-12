@@ -23,11 +23,11 @@ export const Basic = ({ navigation }) => (
 	</View>
 );
 
-export const WithoutPlaceholder = ({ navigation }) => (
+export const WithPlaceholder = ({ navigation }) => (
 	<View style={{ flex: 1 }}>
 		<View style={styles.headerSpacer} />
 		<TextField
-			placeholder=""
+			placeholder="Search for books"
 			showFilter={false}
 			navigate={() => {
 				navigation.navigate('DrawerToggle');
