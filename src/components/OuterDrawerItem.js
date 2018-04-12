@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableOpacity, View, Text } from 'react-native';
 import { MaterialCommunityIcons as Icon } from '@expo/vector-icons';
 
-const DrawerItem = ({ label, onPress, isChild }) => (
+const OuterDrawerItem = ({ label, onPress }) => (
 	<TouchableOpacity
 		onPress={onPress}
 		style={{
@@ -19,9 +19,9 @@ const DrawerItem = ({ label, onPress, isChild }) => (
 			}}
 		>
 			<Text>{label}</Text>
-			{!isChild && <Icon name="chevron-right" size={20} />}
+			<Icon name="chevron-right" size={20} />
 		</View>
 	</TouchableOpacity>
 );
 
-export default DrawerItem;
+export default OuterDrawerItem;

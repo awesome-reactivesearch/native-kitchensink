@@ -4,7 +4,6 @@ import { DrawerNavigator } from 'react-navigation';
 import DefaultScreen from './src/components/DefaultScreen';
 import MainDrawer from './src/drawers/MainDrawer';
 import screenMapping from './src/screenMapping';
-import { flattenChildDrawerObjects } from './src/utils';
 
 // RootDrawer containing drawers for each components
 const RootDrawer = DrawerNavigator(
@@ -15,7 +14,7 @@ const RootDrawer = DrawerNavigator(
 		// Register screens of all options of child components
 		// Flatten all objects from mapping to screen registration form (like `Main`)
 		// Keys of each screen will be used to render screen based on child drawer item selection
-		...flattenChildDrawerObjects(screenMapping),
+		...screenMapping,
 	},
 	{
 		// Custom implementation of drawer panel

@@ -1,36 +1,23 @@
-/* 	Used for all the child component screens to register them individually
-	Flatten the screen mapping in form of:
-	{
-		DataSearch_withTitle: {
-			screen: DataSearch_withTitle
-		},
-  		DataSearch_withIcon: {
-			screen: DataSearch_withIcon
+export const evaluateOuterDrawerListItems = items => {
+	const drawerItems = {};
+	items.forEach((item, index) => {
+		let { key } = item;
+		// Delimeter _
+		key = key.substr(0, key.indexOf('_'));
+		if (key.length) {
+			if (drawerItems.hasOwnProperty(key)) {
+				drawerItems[key].end = index;
+			} else {
+				drawerItems[key] = {
+					start: index,
+					end: 0,
+				};
+			}
 		}
-	}
-*/
-export const flattenChildDrawerObjects = nestedObject => {
-	let output = {};
-	Object.keys(nestedObject).forEach(componentKey => {
-		const { screen, ...pluckScreenProp } = nestedObject[componentKey];
-		output = { ...output, ...pluckScreenProp };
 	});
-	return output;
+	return drawerItems;
 };
 
-/* 	Returns child drawer options based on component/screen ID of outer drawer
-	Input: TextField
-	Output:
-	{
-		TextField_withTitle: {
-			screen: TextField_withTitle
-		},
-		TextField_withIcon: {
-			screen: TextField_withIcon
-		}
-	}
-*/
-export const getChildDrawerOptions = (screenMapping, componentId) => {
-	const { screen, ...drawerOptions } = screenMapping[componentId];
-	return drawerOptions;
-};
+export const evaluateChildDrawerTitle = ({ navigation }) => ({
+	title: navigation.state.key.substr(navigation.state.key.indexOf('_') + 1),
+});

@@ -1,12 +1,33 @@
 import React, { Component } from 'react';
-import { NavigationActions } from 'react-navigation';
+import {
+	View,
+	Text,
+	StyleSheet,
+	TouchableOpacity,
+	ScrollView,
+} from 'react-native';
+import { DrawerItems } from 'react-navigation';
+import { Ionicons as Icon } from '@expo/vector-icons';
 
-import { getChildDrawerOptions } from '../utils';
-import DrawerItem from '../components/DrawerItem';
-import ChildDrawer from './ChildDrawer';
-import DrawerContainer from '../components/DrawerContainer';
+import { evaluateOuterDrawerListItems } from '../utils';
+import OuterDrawerItem from '../components/OuterDrawerItem';
 import DrawerHeader from '../components/DrawerHeader';
-import screenMapping from './../screenMapping';
+
+const styles = StyleSheet.create({
+	customDrawerTouch: {
+		paddingLeft: 13,
+		paddingTop: 15,
+	},
+	customDrawerIcon: { paddingRight: 10 },
+	backButtonRow: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		paddingBottom: 17,
+		paddingLeft: 3,
+		borderBottomColor: '#F0F0F0',
+		borderBottomWidth: 1,
+	},
+});
 
 class MainDrawer extends Component {
 	constructor(props) {
@@ -20,68 +41,60 @@ class MainDrawer extends Component {
 	toggleMainDrawer = () =>
 		this.setState(prevState => ({ mainDrawer: !prevState.mainDrawer }));
 
-	_evaluateComponentsList = items => {
-		let drawerItems = new Set();
-		items.forEach(item => {
-			let { key } = item;
-			key = key.substr(0, key.indexOf('_'));
-			if (key.length) drawerItems.add(key);
-		});
-		drawerItems = Array.from(drawerItems);
-		return drawerItems;
-	};
-
 	renderMainDrawerComponents = mainDrawerItems =>
-		mainDrawerItems.map(item => (
-			<DrawerItem
+		Object.keys(mainDrawerItems).map(item => (
+			<OuterDrawerItem
 				key={item}
 				label={item}
 				onPress={() => {
-					this.toggleMainDrawer();
-					this.setState({ currentComponent: item });
+					this.setState({
+						currentComponent: item,
+						mainDrawer: false,
+					});
 				}}
 			/>
 		));
 
-	// Switches the rendering screen based on route key and mapping key
 	navigateToCallback = routeName => {
 		const { navigation } = this.props;
-		const navigateAction = NavigationActions.navigate({
-			routeName,
-		});
-
-		navigation.dispatch(navigateAction);
+		navigation.navigateTo(routeName);
 	};
 
-	// TODO: Pass all non-behavioral props that were previously passed to DrawerItems
-	// to have full support of navigation options and customizations
 	render() {
-		const { mainDrawer, currentComponent } = this.state;
-		let { items } = this.props;
+		const { items, ...restProps } = this.props;
+		const scopedItemsObject = evaluateOuterDrawerListItems(items);
 
-		items = this._evaluateComponentsList(items);
-
-		if (mainDrawer) {
+		if (this.state.mainDrawer) {
 			return (
-				<DrawerContainer>
+				<ScrollView>
 					<DrawerHeader navigateToCallback={this.navigateToCallback} />
-					{this.renderMainDrawerComponents(items)}
-				</DrawerContainer>
+					{this.renderMainDrawerComponents(scopedItemsObject)}
+				</ScrollView>
 			);
 		}
 
-		const childDrawerItems = getChildDrawerOptions(
-			screenMapping,
-			currentComponent
-		);
+		const index = scopedItemsObject[this.state.currentComponent];
+		const scopedItemsArr = items.slice(index.start, index.end);
 
 		return (
-			<ChildDrawer
-				componentKey={currentComponent}
-				items={childDrawerItems}
-				goBack={this.toggleMainDrawer}
-				navigateToCallback={this.navigateToCallback}
-			/>
+			<ScrollView>
+				<DrawerHeader navigateToCallback={this.navigateToCallback} />
+				<TouchableOpacity
+					onPress={this.toggleMainDrawer}
+					style={styles.customDrawerTouch}
+				>
+					<View style={styles.backButtonRow}>
+						<Icon
+							name="ios-arrow-back"
+							size={25}
+							style={styles.customDrawerIcon}
+							color="#666666"
+						/>
+						<Text style={{ color: '#666666' }}>Back to Components</Text>
+					</View>
+				</TouchableOpacity>
+				<DrawerItems items={scopedItemsArr} {...restProps} />
+			</ScrollView>
 		);
 	}
 }
