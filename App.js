@@ -17,7 +17,7 @@ const RootDrawer = DrawerNavigator(
 		...screenMapping,
 	},
 	{
-		// Custom implementation of drawer panel
+		// Custom rendering component of drawer panel
 		contentComponent: MainDrawer,
 	}
 );

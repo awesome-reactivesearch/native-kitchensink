@@ -55,16 +55,14 @@ class MainDrawer extends Component {
 			/>
 		));
 
-	navigateToCallback = routeName => {
-		const { navigation } = this.props;
-		navigation.navigate(routeName);
-	};
+	navigateToCallback = routeName => this.props.navigation.navigate(routeName);
 
 	render() {
 		const { items, ...restProps } = this.props;
+		const { mainDrawer, currentComponent } = this.state;
 		const scopedItemsObject = evaluateOuterDrawerListItems(items);
 
-		if (this.state.mainDrawer) {
+		if (mainDrawer) {
 			return (
 				<ScrollView>
 					<DrawerHeader navigateToCallback={this.navigateToCallback} />
@@ -73,7 +71,8 @@ class MainDrawer extends Component {
 			);
 		}
 
-		const index = scopedItemsObject[this.state.currentComponent];
+		const index = scopedItemsObject[currentComponent];
+
 		const scopedItemsArr = items.slice(index.start, index.end);
 
 		return (

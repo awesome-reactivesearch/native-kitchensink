@@ -3,6 +3,7 @@ export const evaluateOuterDrawerListItems = items => {
 	items.forEach((item, index) => {
 		let { key } = item;
 		// Delimeter _
+		// key => DataSearch_Basic to DataSearch
 		key = key.substr(0, key.indexOf('_'));
 		if (key.length) {
 			if (drawerItems.hasOwnProperty(key)) {
