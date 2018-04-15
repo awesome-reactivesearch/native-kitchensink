@@ -12,8 +12,6 @@ const RootDrawer = DrawerNavigator(
 			screen: DefaultScreen,
 		},
 		// Register screens of all options of child components
-		// Flatten all objects from mapping to screen registration form (like `Main`)
-		// Keys of each screen will be used to render screen based on child drawer item selection
 		...screenMapping,
 	},
 	{
