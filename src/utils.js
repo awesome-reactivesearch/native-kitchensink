@@ -2,12 +2,12 @@ export const evaluateOuterDrawerListItems = items => {
 	const drawerItems = {};
 	items.forEach((item, index) => {
 		let { key } = item;
-		// Delimeter _
+		// Delimiter _
 		// key => DataSearch_Basic to DataSearch
 		key = key.substr(0, key.indexOf('_'));
 		if (key.length) {
 			if (drawerItems.hasOwnProperty(key)) {
-				drawerItems[key].end = index;
+				drawerItems[key].end = index + 1;
 			} else {
 				drawerItems[key] = {
 					start: index,

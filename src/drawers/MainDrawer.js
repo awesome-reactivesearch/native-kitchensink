@@ -60,6 +60,8 @@ class MainDrawer extends Component {
 	render() {
 		const { items, ...restProps } = this.props;
 		const { mainDrawer, currentComponent } = this.state;
+
+		// get items objects with unique items and indexes
 		const scopedItemsObject = evaluateOuterDrawerListItems(items);
 
 		if (mainDrawer) {
