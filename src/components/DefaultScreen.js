@@ -6,6 +6,7 @@ import {
 	Text,
 	TouchableOpacity,
 	View,
+	Platform,
 } from 'react-native';
 import { Ionicons as Icon } from '@expo/vector-icons';
 import { Button } from 'native-base';
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
 		backgroundColor: '#FFF',
 	},
 	innerContainer: { flex: 1, alignItems: 'center', justifyContent: 'center' },
-	header: { padding: 15, paddingTop: 7 },
+	header: { padding: 15, paddingTop: Platform.OS === 'ios' ? 13 : 7 },
 });
 
 export default class DefaultScreen extends React.Component {
